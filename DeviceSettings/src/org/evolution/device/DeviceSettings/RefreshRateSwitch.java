@@ -1,3 +1,4 @@
+
 /*
 * Copyright (C) 2016 The OmniROM Project
 *
@@ -18,42 +19,24 @@
 package org.evolution.device.DeviceSettings;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.provider.Settings;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceManager;
 
-import org.evolution.device.DeviceSettings.DeviceSettings;
+public class RefreshRateSwitch {
 
-public class RefreshRateSwitch implements OnPreferenceChangeListener {
-
-    public static final String SETTINGS_KEY = DeviceSettings.KEY_SETTINGS_PREFIX + DeviceSettings.KEY_REFRESH_RATE;
-    private Context mContext;
-
-    public RefreshRateSwitch(Context context) {
-        mContext = context;
-    }
+    public RefreshRateSwitch() { }
 
     public static boolean isCurrentlyEnabled(Context context) {
-        return Settings.System.getFloat(context.getContentResolver(),
+        boolean peak = Settings.System.getFloat(context.getContentResolver(),
                 Settings.System.PEAK_REFRESH_RATE, 120f) == 120f;
+        boolean min = Settings.System.getFloat(context.getContentResolver(),
+                Settings.System.MIN_REFRESH_RATE, 60f) == 120f;
+        return peak && min;
     }
 
-    public static void setPeakRefresh (Context context, boolean enabled) {
+    public static void setPeakRefresh(Context context, boolean enabled) {
         Settings.System.putFloat(context.getContentResolver(),
                 Settings.System.PEAK_REFRESH_RATE, enabled ? 120f : 60f);
         Settings.System.putFloat(context.getContentResolver(),
                 Settings.System.MIN_REFRESH_RATE, enabled ? 120f : 60f);
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Boolean enabled = (Boolean) newValue;
-        Settings.System.putFloat(mContext.getContentResolver(),
-                Settings.System.PEAK_REFRESH_RATE, enabled ? 120f : 60f);
-        Settings.System.putFloat(mContext.getContentResolver(),
-                Settings.System.MIN_REFRESH_RATE, enabled ? 120f : 60f);
-        return true;
     }
 }
