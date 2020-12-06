@@ -76,4 +76,11 @@
     <string name="quick_settings_log_tile_label">LogTile</string>
     <string name="quick_settings_log_tile_dialog_title">Options</string>
     <string name="cannot_get_su">Action failed because of missing superuser access</string>
+
+    <!-- Slider toasts -->
+    <string name="slider_toast_normal">Calls and notifications will ring</string>
+    <string name="slider_toast_vibrate">Calls and notifications will vibrate</string>
+    <string name="slider_toast_dnd">DND - No interruptions</string>
+    <string name="slider_toast_priority">DND - Priority only</string>
+    <string name="slider_toast_silent">Calls and notifications will be muted</string>
 </resources>
