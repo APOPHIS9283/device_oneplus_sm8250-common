@@ -4,9 +4,8 @@
     android:height="60dp"
     android:viewportWidth="60"
     android:viewportHeight="60">
-
     <path
-        android:fillColor="#FF66FF00"
+        android:fillColor="#FFFFFFFF"
         android:fillAlpha="0.996"
         android:fillType="evenOdd"
         android:strokeAlpha="0.996"
