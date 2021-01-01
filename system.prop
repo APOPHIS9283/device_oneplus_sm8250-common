@@ -56,3 +56,6 @@ ro.vendor.qti.va_aosp.support=1
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
+
+#Netflix custom property
+ro.netflix.bsp_rev=Q8250-19134-1
