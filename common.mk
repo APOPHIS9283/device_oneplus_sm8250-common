@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/sm8250-common/sm8250-common-vendor.mk)
 
+# GoogleCamera
+$(call inherit-product, packages/apps/GoogleCamera/config.mk)
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -30,7 +33,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-evolution
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -84,7 +87,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    vendor/evolution/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # A/B
 AB_OTA_UPDATER := true
@@ -276,6 +279,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
+# Evolution Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Doze
 PRODUCT_PACKAGES += \
     OnePlusDoze
@@ -287,6 +294,14 @@ PRODUCT_PACKAGES += \
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
+
+#FOD animations
+EXTRA_FOD_ANIMATIONS := true
+
+# Prebuilts
+PRODUCT_PACKAGES += \
+    Adaway \
+    Sounds
 
 # Fingerprint
 PRODUCT_PACKAGES += \
