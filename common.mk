@@ -404,7 +404,8 @@ PRODUCT_PACKAGES += \
     libOmxG711Enc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVenc
+    libOmxVenc \
+    libstagefrighthw
 
 # OnePlus
 PRODUCT_PACKAGES += \
