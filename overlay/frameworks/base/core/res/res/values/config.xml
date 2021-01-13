@@ -270,17 +270,18 @@
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>55</item>
+        <item>20</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
-        <item>55</item>
+        <item>20</item>
     </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
+        <item>0</item>
         <item>20</item>
     </integer-array>
 
@@ -293,7 +294,7 @@
 
     <bool name="config_enableHapticTextHandle">true</bool>
 
-    <integer name="config_defaultHapticFeedbackIntensity">1</integer>
+    <integer name="config_defaultHapticFeedbackIntensity">3</integer>
 
     <integer name="config_defaultNotificationVibrationIntensity">3</integer>
 
@@ -364,10 +365,13 @@
 
     <!-- The default (base) refresh rate for a given device. Change this value if you want to force
     a higher refresh rate to be used by default -->
-    <integer name="config_defaultRefreshRate">90</integer>
+    <integer name="config_defaultRefreshRate">60</integer>
 
     <!-- The default peak refresh rate for a given device. -->
     <integer name="config_defaultPeakRefreshRate">120</integer>
+
+    <!-- default refresh rate in the zone defined by brightness and ambient thresholds -->
+    <integer name="config_defaultRefreshRateInZone">120</integer>
 
     <!-- Not allow to switch to higher refresh rate when (display, ambient) brightness falls into
          the region defined by the two arrays -->
@@ -377,9 +381,6 @@
     <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
         <item>-1</item>
     </integer-array>
-
-    <!-- default refresh rate in the zone defined by brightness and ambient thresholds -->
-    <integer name="config_defaultRefreshRateInZone">120</integer>
 
     <!-- Whether device has warp charging support -->
     <bool name="config_hasWarpCharger">true</bool>

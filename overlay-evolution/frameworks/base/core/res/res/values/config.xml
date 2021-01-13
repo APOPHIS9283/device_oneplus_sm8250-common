@@ -82,9 +82,6 @@
     <!-- Whether key handler sends intent when changing slider position -->
     <string name="config_alertSliderIntent">com.evolution.device.DeviceSettings.UPDATE_SLIDER_POSITION</string>
 
-    <!-- Whether the device supports Smart Pixels -->
-    <bool name="config_enableSmartPixels">true</bool>
-
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/power_supply/battery/fastchg_status</string>
 
@@ -156,6 +153,13 @@
     <!-- Defines custom Vendor sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName">oneplus.sensor.pocket</string>
 
-    <!-- Smart charging -->
-    <bool name="config_smartChargingAvailable">true</bool>
+    <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
+     vibrator is capable of subtle vibrations -->
+    <bool name="config_vibrateOnIconAnimation">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
+
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
 </resources>

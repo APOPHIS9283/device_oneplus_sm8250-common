@@ -23,16 +23,6 @@
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
 
-    <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
-     vibrator is capable of subtle vibrations -->
-    <bool name="config_vibrateOnIconAnimation">true</bool>
-
-    <!-- FPSInfoService FPS node file path -->
-    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
-
-    <!-- Enable face auth only when swiping security view -->
-    <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
-
     <!-- Default rounded corner curve (a Bezier). Must match (the curved path in) rounded.xml.
          Note that while rounded.xml includes the entire path (including the horizontal and vertical
          corner edges), this pulls out just the curve.
