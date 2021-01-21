@@ -299,8 +299,7 @@ EXTRA_FOD_ANIMATIONS := true
 
 # Prebuilts
 PRODUCT_PACKAGES += \
-    Adaway \
-    Sounds
+    Adaway
 
 # Fingerprint
 PRODUCT_PACKAGES += \
