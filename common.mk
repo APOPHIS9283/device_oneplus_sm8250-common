@@ -303,6 +303,10 @@ EXTRA_FOD_ANIMATIONS := true
 PRODUCT_PACKAGES += \
     Adaway
 
+#Build libjamesdsp
+PRODUCT_PACKAGES += \
+    JamesDSPManager
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.oneplus_kona \
