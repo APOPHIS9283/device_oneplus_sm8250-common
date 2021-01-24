@@ -144,6 +144,7 @@ drm.service.enabled=true
 
 # Fingerprint
 persist.vendor.qfp=true
+vendor.boot.verifiedbootstate=orange
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/config
