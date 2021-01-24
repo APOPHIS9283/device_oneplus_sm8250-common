@@ -416,7 +416,8 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag \
     vendor.nxp.nxpese@1.0:64 \
-    vendor.nxp.nxpnfc@1.0:64
+    vendor.nxp.nxpnfc@1.0:64 \
+    QuickAccessWallet
 
 # OMX
 PRODUCT_PACKAGES += \
