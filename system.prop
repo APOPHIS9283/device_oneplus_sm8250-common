@@ -1,7 +1,6 @@
 # Audio
 audio.offload.min.duration.secs=30
 persist.vendor.audio.hac.enable=false
-persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 
 # Camera
 camera.disable_zsl_mode=true
@@ -12,7 +11,6 @@ ro.charger.disable_init_blank=true
 # Display
 debug.gralloc.gfx_ubwc_disable=0
 debug.sf.enable_hwc_vds=1
-debug.sf.latch_unsignaled=1
 persist.vendor.color.matrix=2
 
 # CNE
@@ -56,6 +54,9 @@ persist.vendor.data.mode=concurrent
 
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# SurfaceFlinger
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # Vendor
 ro.vendor.qti.va_aosp.support=1
