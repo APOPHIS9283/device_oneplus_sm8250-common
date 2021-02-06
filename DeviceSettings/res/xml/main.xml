@@ -38,6 +38,11 @@
             android:key="auto_hbm_threshold"
             android:title="@string/auto_hbm_threshold_title"
             android:summary="@string/auto_hbm_threshold_summary" />
+
+        <Preference
+            android:icon="@drawable/ic_info_outline_24dp"
+            android:persistent="false"
+            android:summary="@string/hbm_mode_warning" />
     </PreferenceCategory>
 
     <PreferenceCategory

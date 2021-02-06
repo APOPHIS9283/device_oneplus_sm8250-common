@@ -18,6 +18,7 @@
     <string name="hbm_mode_summary"></string>
     <string name="hbm_mode_title">High brightness mode</string>
     <string name="auto_hbm_summary"></string>
+    <string name="hbm_mode_warning">Long time usage of High brightness mode may damage your display</string>
     <string name="auto_hbm_title">Automatic High brightness mode</string>
     <string name="auto_hbm_threshold_title">Automatic High brightness mode threshold (lux)</string>
     <string name="auto_hbm_threshold_summary"></string>
