@@ -15,8 +15,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:sharedUserId="android.uid.system"
           package="org.evolution.device.DeviceSettings"
-          android:versionCode="1"
-          android:versionName="1.0" >
+          android:versionCode="2"
+          android:versionName="2.0" >
 
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -55,17 +55,6 @@
         <activity android:name=".DeviceSettings" />
         <activity android:name=".KeyHandler" />
 
-        <activity
-            android:name="org.evolution.device.DeviceSettings.PanelSettingsActivity"
-            android:exported="true"
-            android:label="@string/panel_category_title"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <receiver 
             android:name="org.evolution.device.DeviceSettings.Startup" 
             android:enabled="true">
@@ -79,18 +68,6 @@
             android:name="org.evolution.device.DeviceSettings.DCModeTileService"
             android:icon="@drawable/ic_dc_tile"
             android:label="@string/tile_dc_mode"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <!-- Panel mode's tile -->
-        <service
-            android:name="org.evolution.device.DeviceSettings.PanelModeTileService"
-            android:icon="@drawable/ic_panel_tile"
-            android:label="@string/tile_panel_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
