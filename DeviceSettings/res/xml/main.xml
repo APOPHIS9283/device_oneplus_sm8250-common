@@ -38,6 +38,7 @@
             android:key="auto_hbm_threshold"
             android:title="@string/auto_hbm_threshold_title"
             android:summary="@string/auto_hbm_threshold_summary" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="doze"
