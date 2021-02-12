@@ -38,6 +38,22 @@
             android:key="auto_hbm_threshold"
             android:title="@string/auto_hbm_threshold_title"
             android:summary="@string/auto_hbm_threshold_summary" />
+
+    <PreferenceCategory
+        android:key="doze"
+        android:title="@string/doze_panel_title">
+
+        <Preference
+            android:key="advanced_doze_settings"
+            android:icon="@drawable/ic_doze"
+            android:persistent="false"
+            android:title="@string/doze_settings_title"
+            android:summary="@string/doze_settings_summary">
+            <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="org.evolution.settings.doze" 
+                    android:targetClass="org.evolution.settings.doze.DozeSettingsActivity"/>
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -54,23 +70,6 @@
                     android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.touch.gestures"
                     android:targetClass="com.android.touch.gestures.TouchscreenGestureSettings" />
-        </Preference>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="doze"
-        android:title="@string/doze_panel_title">
-
-        <Preference
-        android:key="advanced_doze_settings"
-        android:icon="@drawable/ic_doze"
-        android:persistent="false"
-        android:title="@string/doze_settings_title"
-        android:summary="@string/doze_settings_summary">
-        <intent
-                  android:action="android.intent.action.MAIN"
-                  android:targetPackage="org.lineageos.settings.doze"
-                  android:targetClass="org.lineageos.settings.doze.DozeSettingsActivity" />
         </Preference>
     </PreferenceCategory>
 
@@ -135,6 +134,29 @@
           android:summary="%s"
           android:entries="@array/notification_slider_action_entries"
           android:entryValues="@array/notification_slider_action_entry_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="selinux"
+        android:title="@string/selinux_category">
+
+       <Preference
+          android:summary="@string/selinux_explanation_summary"
+          android:selectable="false"/>
+
+       <SwitchPreference
+          android:key="selinux_mode"
+          android:icon="@drawable/ic_linux"
+          android:title="@string/selinux_mode_title"
+          android:summaryOn="@string/selinux_enforcing_summary"
+          android:summaryOff="@string/selinux_permissive_summary" />
+
+        <SwitchPreference
+          android:key="selinux_persistence"
+          android:icon="@drawable/ic_power"
+          android:title="@string/selinux_persistence_title"
+          android:summary="@string/selinux_persistence_summary"
+          android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory

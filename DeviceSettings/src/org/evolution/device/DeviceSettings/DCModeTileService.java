@@ -20,7 +20,6 @@ package org.evolution.device.DeviceSettings;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Icon;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.preference.PreferenceManager;
@@ -51,8 +50,6 @@ public class DCModeTileService extends TileService {
         super.onStartListening();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         enabled = DCModeSwitch.isCurrentlyEnabled(this);
-        getQsTile().setIcon(Icon.createWithResource(this,
-                    enabled ? R.drawable.ic_dimming_on : R.drawable.ic_dimming_off));
         getQsTile().setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         getQsTile().updateTile();
 
@@ -71,8 +68,6 @@ public class DCModeTileService extends TileService {
         Utils.writeValue(DCModeSwitch.getFile(), enabled ? "0" : "1");
         sharedPrefs.edit().putBoolean(DeviceSettings.KEY_DC_SWITCH, enabled ? false : true).commit();
         //getQsTile().setLabel(enabled ? "DC off" : "DC On");
-        getQsTile().setIcon(Icon.createWithResource(this,
-                    enabled ? R.drawable.ic_dimming_off : R.drawable.ic_dimming_on));
         getQsTile().setState(enabled ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE);
         getQsTile().updateTile();
     }

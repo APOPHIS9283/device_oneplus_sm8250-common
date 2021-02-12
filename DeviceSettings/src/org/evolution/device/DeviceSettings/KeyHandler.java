@@ -18,13 +18,11 @@
 package org.evolution.device.DeviceSettings;
 
 import android.Manifest;
-import android.app.ActivityThread;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -34,7 +32,6 @@ import android.media.AudioManager;
 import android.media.session.MediaSessionLegacyHelper;
 import android.os.FileObserver;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
@@ -48,17 +45,13 @@ import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.KeyEvent;
-import android.widget.Toast;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 
 import org.evolution.device.DeviceSettings.Constants;
-import org.evolution.device.DeviceSettings.DeviceSettings;
-import org.evolution.device.DeviceSettings.R;
 
 import vendor.oneplus.camera.CameraHIDL.V1_0.IOnePlusCameraProvider;
-
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -84,16 +77,11 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public static final String CLIENT_PACKAGE_NAME = "com.oneplus.camera";
     public static final String CLIENT_PACKAGE_PATH = "/data/misc/evolution/client_package_name";
-    
-    private static Toast mToast;
 
     private final Context mContext;
-    private final Context mResContext;
-    private final Context mSysUiContext;
     private final PowerManager mPowerManager;
     private final NotificationManager mNotificationManager;
     private final AudioManager mAudioManager;
-
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
     private Vibrator mVibrator;
@@ -121,8 +109,6 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public KeyHandler(Context context) {
         mContext = context;
-        mResContext = getResContext(context);
-        mSysUiContext = ActivityThread.currentActivityThread().getSystemUiContext();
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mNotificationManager
                 = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -158,7 +144,7 @@ public class KeyHandler implements DeviceKeyHandler {
         try {
             keyCodeValue = Constants.getPreferenceInt(mContext, keyCode);
         } catch (Exception e) {
-            return event;
+             return event;
         }
 
         if (!hasSetupCompleted()) {
@@ -173,61 +159,17 @@ public class KeyHandler implements DeviceKeyHandler {
         mAudioManager.setRingerModeInternal(sSupportedSliderRingModes.get(keyCodeValue));
         mNotificationManager.setZenMode(sSupportedSliderZenModes.get(keyCodeValue), null, TAG);
         int position = scanCode == 601 ? 2 : scanCode == 602 ? 1 : 0;
+        sendUpdateBroadcast(position);
         doHapticFeedback();
-
-        int positionValue = 0;
-        String toastText;
-        Resources res = mResContext.getResources();
-        int key = sSupportedSliderRingModes.keyAt(
-                sSupportedSliderRingModes.indexOfKey(keyCodeValue));
-        switch (key) {
-            case Constants.KEY_VALUE_TOTAL_SILENCE: // DND - no int'
-                toastText = res.getString(R.string.slider_toast_dnd);
-                positionValue = Constants.MODE_TOTAL_SILENCE;
-                break;
-            case Constants.KEY_VALUE_SILENT: // Ringer silent
-                toastText = res.getString(R.string.slider_toast_silent);
-                positionValue = Constants.MODE_SILENT;
-                break;
-            case Constants.KEY_VALUE_PRIORTY_ONLY: // DND - priority
-                toastText = res.getString(R.string.slider_toast_priority);
-                positionValue = Constants.MODE_PRIORITY_ONLY;
-                break;
-            case Constants.KEY_VALUE_VIBRATE: // Ringer vibrate
-                toastText = res.getString(R.string.slider_toast_vibrate);
-                positionValue = Constants.MODE_VIBRATE;
-                break;
-            default:
-            case Constants.KEY_VALUE_NORMAL: // Ringer normal DND off
-                toastText = res.getString(R.string.slider_toast_normal);
-                positionValue = Constants.MODE_RING;
-                break;
-        }
-
-        sendUpdateBroadcast(position, positionValue);
-
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (mToast != null) mToast.cancel();
-                mToast = Toast.makeText(
-                        mSysUiContext, toastText, Toast.LENGTH_SHORT);
-                mToast.show();
-            }
-        });
-
         return null;
     }
 
-    private void sendUpdateBroadcast(int position, int position_value) {
+    private void sendUpdateBroadcast(int position) {
         Intent intent = new Intent(Constants.ACTION_UPDATE_SLIDER_POSITION);
         intent.putExtra(Constants.EXTRA_SLIDER_POSITION, position);
-        intent.putExtra(Constants.EXTRA_SLIDER_POSITION_VALUE, position_value);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
         intent.setFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY);
-        Log.d(TAG, "slider change to positon " + position
-                            + " with value " + position_value);
+        Log.d(TAG, "slider change to positon " + position);
     }
 
     private void doHapticFeedback() {
@@ -235,18 +177,6 @@ public class KeyHandler implements DeviceKeyHandler {
             mVibrator.vibrate(VibrationEffect.createOneShot(50,
                     VibrationEffect.DEFAULT_AMPLITUDE));
         }
-    }
-
-    private Context getResContext(Context context) {
-        Context resContext;
-        try {
-            resContext = context.createPackageContext("org.evolution.device.DeviceSettings",
-                    Context.CONTEXT_IGNORE_SECURITY | Context.CONTEXT_INCLUDE_CODE);
-        } catch (NameNotFoundException e) {
-            // nothing to do about this, shouldn't ever reach here anyway
-            resContext = context;
-        }
-        return resContext;
     }
 
     public void handleNavbarToggle(boolean enabled) {
