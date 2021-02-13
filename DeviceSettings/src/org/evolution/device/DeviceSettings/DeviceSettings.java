@@ -195,7 +195,6 @@ public class DeviceSettings extends PreferenceFragment
             setSelinuxEnabled(enabled, mSelinuxPersistence.isChecked());
         } else if (preference == mSelinuxPersistence) {
             setSelinuxEnabled(mSelinuxMode.isChecked(), (Boolean) newValue);
-            }
         }
         else {
             Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
