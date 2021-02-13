@@ -28,9 +28,6 @@
     <!-- Smart charging -->
     <bool name="config_smartChargingAvailable">true</bool>
 
-    <!-- Device specific doze package -->
-    <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
-
     <!-- Whether to show the Preference for Touch Sensitivity -->
     <bool name="config_show_touch_sensitivity">true</bool>
 </resources>
