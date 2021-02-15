@@ -90,7 +90,6 @@ vendor.voice.path.for.pcm.voip=true
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
 persist.vendor.oneplus.bt.asd.chain=0
@@ -127,8 +126,6 @@ dalvik.vm.heaptargetutilization=0.75
 pm.dexopt.ab-ota=speed-profile
 dalvik.vm.dex2oat-filter=speed
 dalvik.vm.image-dex2oat-filter=speed
-ro.vendor.qti.am.reschedule_service=true
-ro.sys.fw.dex2oat_thread_count=8
 dalvik.vm.boot-dex2oat-threads=8
 dalvik.vm.dex2oat-threads=4
 dalvik.vm.image-dex2oat-threads=4
@@ -161,9 +158,6 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
-# GPS
-persist.backup.ntpServer=0.pool.ntp.org
-
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
@@ -171,7 +165,6 @@ debug.sf.enable_advanced_sf_phase_offset=0
 debug.sf.disable_backpressure=1
 debug.sf.hw=0
 debug.sf.latch_unsignaled=0
-persist.demo.hdmirotationlock=false
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
@@ -207,9 +200,6 @@ ro.vendor.extension_library=libqti-perfd-client.so
 persist.vendor.qcomsysd.enabled=1
 
 # Radio
-persist.radio.snapshot_enabled=0
-persist.radio.snapshot_timer=0
-persist.rcs.otp_sms_port=0
 persist.rcs.supported=1
 persist.vendor.data.iwlan.enable=true
 persist.vendor.radio.5g_mode_pref=1
@@ -228,7 +218,6 @@ persist.vendor.radio.process_sups_ind=1
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
 persist.vendor.radio.uicc_se_enabled=true
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.com.android.dataroaming=true
 
 # Sensors
