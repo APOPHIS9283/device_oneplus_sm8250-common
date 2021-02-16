@@ -1,0 +1,2 @@
+allow hal_sensors_default oem_file:dir search;
+allow hal_sensors_default oem_file:file read;

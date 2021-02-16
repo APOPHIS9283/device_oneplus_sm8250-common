@@ -1,0 +1,23 @@
+allow platform_app sysfs_thermal:dir { search };
+allow platform_app sysfs_thermal:file r_file_perms;
+
+allow platform_app sysfs_info:dir { search };
+allow platform_app sysfs_info:lnk_file { read };
+allow platform_app sysfs_info:file { open read };
+
+allow platform_app vendor_sysfs_battery_supply:dir { search };
+allow platform_app vendor_sysfs_battery_supply:lnk_file { read };
+allow platform_app vendor_sysfs_battery_supply:file { getattr open read };
+
+allow platform_app vendor_sysfs_kgsl:file { getattr open read };
+
+# OTA
+allow platform_app { cache_file cache_recovery_file }:dir create_dir_perms;
+allow platform_app { cache_file cache_recovery_file }:file create_file_perms;
+allow platform_app cache_file:lnk_file r_file_perms;
+allow platform_app ota_package_file:file create_file_perms;
+allow platform_app ota_package_file:dir rw_dir_perms;
+allow platform_app recovery_service:service_manager find;
+allow platform_app sysfs_graphics:file r_file_perms;
+
+get_prop(platform_app, theme_prop)

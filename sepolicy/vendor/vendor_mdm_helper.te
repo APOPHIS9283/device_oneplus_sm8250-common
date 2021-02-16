@@ -1,1 +1,3 @@
 r_dir_file(vendor_mdm_helper, sysfs_project_info)
+allow vendor_mdm_helper mnt_vendor_file:dir { getattr search };
+allow vendor_mdm_helper tmpfs:dir write;

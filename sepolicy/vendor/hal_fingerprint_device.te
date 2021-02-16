@@ -9,6 +9,15 @@ allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_qdsp_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_xdsp_device:chr_file rw_file_perms;
 
+allow hal_fingerprint_default vendor_sysfs_battery_supply:dir search;
+allow hal_fingerprint_default vendor_sysfs_battery_supply:file read;
+allow hal_fingerprint_default vendor_sysfs_battery_supply:file open;
+
+allow hal_fingerprint_default default_prop:file { getattr map open read };
+allow hal_fingerprint_default mnt_vendor_file:dir search;
+allow hal_fingerprint_default oem_file:dir { add_name search write };
+allow hal_fingerprint_default oem_file:file create;
+
 allow hal_fingerprint_default proc_touchpanel:dir search;
 allow hal_fingerprint_default proc_touchpanel:file rw_file_perms;
 
