@@ -93,4 +93,8 @@ void checkmodel_loadprops() {
 void vendor_load_properties() {
   checkram_loadprops();
   checkmodel_loadprops();
+
+  property_override("org.evolution.build_donate_url", "https://paypal.me/APOPHIS9283");
+  property_override("org.evolution.build_maintainer", "apophis9283");
+  property_override("org.evolution.build_support_url", "https://t.me/joinchat/SYPKW6V4xdOHHHPy");
 }
