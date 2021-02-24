@@ -1,0 +1,2 @@
+# Allow vendor_qti to read, write, open, and control IO in vendor_diag_device
+allow vendor_qti vendor_diag_device:chr_file { open ioctl read write };

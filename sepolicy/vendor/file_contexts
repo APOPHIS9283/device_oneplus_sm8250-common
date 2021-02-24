@@ -1,3 +1,4 @@
+# Binaries
 /(vendor|system/vendor)/bin/dashd                   u:object_r:dashd_exec:s0
 /(vendor|system/vendor)/bin/opf-service             u:object_r:opf_exec:s0
 /(vendor|system/vendor)/bin/tri-state-key_daemon    u:object_r:tri-state-key_daemon_exec:s0
@@ -48,10 +49,12 @@
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
 /dev/wlchg                u:object_r:wlchg_device:s0
 
+#DPM
+/(product|system/product)/bin/dpmd                                                                              u:object_r:vendor_dpmd_exec:s0
+
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_kona            u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1\.0-service\.oneplus_kona    u:object_r:hal_lineage_fod_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.oneplus_kona                          u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare@1\.0-service\.oneplus_kona                           u:object_r:hal_lineage_powershare_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus_kona                                u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.camera@1\.0-service                                   u:object_r:hal_cameraHIDL_default_exec:s0
@@ -61,6 +64,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                    u:object_r:hal_param_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service                              u:object_r:hal_graphics_composer_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service                       u:object_r:hal_graphics_composer_default_exec:s0
+/(vendor|system/vendor)/bin/irisConfig                                                                          u:object_r:iris_config_exec:s0
 
 # Dolby
 /(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@1\.0-service                     u:object_r:hal_dms_default_exec:s0
@@ -95,6 +99,7 @@
 # Sys files (wakeup)
 /sys/devices/platform/soc/c440000\.qcom,spmi/spmi-0/spmi0-00/c440000\.qcom,spmi:qcom,pm8150@0:qcom,pm8150_rtc/rtc/rtc0/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/soc/soc:oneplus_wlchg/power_supply/wireless/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/soc:tri_state_key/hall_data_calib u:object_r:sysfs_tri_state_key:s0
 /sys/devices/virtual/diag/diag/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/msm_aac/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/msm_alac/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
@@ -110,3 +115,30 @@
 /sys/devices/virtual/misc/msm_qcelp/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/msm_wma/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/msm_wmapro/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
+
+# Display Modes
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm                                   u:object_r:sysfs_dm:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_brightness                        u:object_r:sysfs_dm:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en                        u:object_r:sysfs_dm:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dither_en                             u:object_r:sysfs_dm:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_p3_mode                u:object_r:sysfs_color:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_srgb_color_mode        u:object_r:sysfs_color:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_wide_color_mode        u:object_r:sysfs_color:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/aod                                   u:object_r:sysfs_aod:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dim_alpha                             u:object_r:sysfs_fod:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_dim                            u:object_r:sysfs_fod:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_fppress                        u:object_r:sysfs_fod:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/op_friginer_print_hbm                 u:object_r:sysfs_fod:s0
+
+#FPS
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dynamic_fps                                  u:object_r:sysfs_dm:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps                                  u:object_r:sysfs_dm:s0
+
+#Vibrator
+/sys/devices/platform/soc/a8c000.i2c/i2c-3/3-005a/leds/vibrator/level                                              u:object_r:sysfs_leds:s0
+
+/sys/kernel/gpu(/.*)?                                                                                              u:object_r:sysfs_info:s0
+
+# Custom Equilizer (JamesDSP)
+/vendor/lib/soundfx/libjamesdsp\.so    u:object_r:vendor_file:s0
+/vendor/lib64/soundfx/libjamesdsp\.so    u:object_r:vendor_file:s0

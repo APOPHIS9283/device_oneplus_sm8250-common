@@ -1,0 +1,2 @@
+# Allow secure_element to read, map, open, and get attributes in vendor_nfc_prop
+allow secure_element vendor_nfc_prop:file { getattr map read open };

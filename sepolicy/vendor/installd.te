@@ -1,0 +1,2 @@
+# Allow installd to get quotas in op1_file
+allow installd op1_file:filesystem { quotaget };

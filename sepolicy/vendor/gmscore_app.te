@@ -1,0 +1,4 @@
+allow gmscore_app hal_memtrack_hwservice:hwservice_manager find;
+allow gmscore_app hal_memtrack_default:binder call;
+allow gmscore_app adbd_prop:file { getattr open map };
+allow gmscore_app apexd_prop:file { getattr open map };

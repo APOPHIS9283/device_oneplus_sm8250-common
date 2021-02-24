@@ -1,0 +1,11 @@
+allow hal_sensors_default oem_file:dir search;
+allow hal_sensors_default oem_file:file read;
+
+# Allow hal_sensors_default to read, write, open, and control IO in vendor_diag_device
+allow hal_sensors_default vendor_diag_device:chr_file { ioctl open read write };
+
+# Allow hal_sensors_default to read, write, open, and get attributes in proc
+allow hal_sensors_default proc:file { getattr open read write };
+
+# Allow hal_sensors_default to read sysfs_aod
+allow hal_sensors_default sysfs_aod:file { read };

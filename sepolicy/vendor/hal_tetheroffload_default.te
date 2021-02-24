@@ -1,0 +1,2 @@
+# Allow hal_tetheroffload_default to read, write, open, and control IO in vendor_diag_device
+allow hal_tetheroffload_default vendor_diag_device:chr_file { open ioctl read write };
