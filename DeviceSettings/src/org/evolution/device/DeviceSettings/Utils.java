@@ -102,9 +102,6 @@ public class Utils {
         try {
             br = new BufferedReader(new FileReader(filename), 1024);
             line = br.readLine();
-            if (line != null) {
-                line = line.replaceAll(".+= ", "");
-            }
         } catch (IOException e) {
             return null;
         } finally {
