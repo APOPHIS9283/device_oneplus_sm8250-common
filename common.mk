@@ -276,10 +276,6 @@ PRODUCT_PACKAGES += \
 #FOD animations
 EXTRA_FOD_ANIMATIONS := true
 
-# Prebuilts
-PRODUCT_PACKAGES += \
-    Adaway
-
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.oneplus_kona \
