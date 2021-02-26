@@ -5,6 +5,9 @@ persist.vendor.audio.hac.enable=false
 # Bluetooth
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 
+# Bluetooth
+ro.bluetooth.library_name=libbluetooth_qti.so
+
 # Camera
 camera.disable_zsl_mode=true
 
