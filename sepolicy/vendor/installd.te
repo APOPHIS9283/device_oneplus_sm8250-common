@@ -1,2 +1,3 @@
 # Allow installd to get quotas in op1_file
 allow installd op1_file:filesystem { quotaget };
+allow installd self:capability kill;

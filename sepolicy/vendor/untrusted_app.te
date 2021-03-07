@@ -1,6 +1,6 @@
-allow untrusted_app virtual_ab_prop:file { getattr map open read };
-allow untrusted_app theme_prop:file { getattr map open read };
 allow untrusted_app vendor_sysfs_devfreq:dir { search };
-allow untrusted_app sysfs_info:dir { search read };
 allow untrusted_app vendor_sysfs_msm_perf:dir { search };
 allow untrusted_app vendor_persist_camera_prop:file { getattr };
+allow untrusted_app theme_prop:file { getattr map open read };
+allow untrusted_app sysfs_info:dir { search read };
+allow untrusted_app virtual_ab_prop:file { getattr map open read };

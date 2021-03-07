@@ -1,4 +1,5 @@
-binder_call(cameraserver, hal_cameraHIDL_default)
 allow cameraserver property_socket:sock_file write;
 allow cameraserver init:unix_stream_socket connectto;
 allow cameraserver system_prop:property_service set;
+
+binder_call(cameraserver, hal_cameraHIDL_default)
