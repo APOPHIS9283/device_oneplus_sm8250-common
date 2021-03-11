@@ -68,3 +68,4 @@ allow untrusted_app_29 app_data_file:dir getattr;
 allow untrusted_app_29 dropbox_data_file:dir getattr;
 allow untrusted_app_29 heapdump_data_file:dir getattr;
 allow untrusted_app_29 vendor_sysfs_graphics:dir search;
+allow untrusted_app_29 sysfs_zram:dir search;
